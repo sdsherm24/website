@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showtimes | Vogel Memorial Theater</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 11px;
+            margin: 0;
+            padding: 0;
+            background-color: #E8E8E8;
+            background-image: url('file:///Macintosh HD/Users/sams/Documents/Unnamed Site 2/vmt_websiteBACK2.png');
+        }
+
+        a {
+            color: #003399;
+        }
+
+        a:hover {
+            color: #FF6600;
+        }
+
+        .main-table {
+            width: 780px;
+            margin: 10px auto;
+            border-collapse: collapse;
+            background-color: #FFFFFF;
+            border: 1px solid #999999;
+        }
+
+        .header-cell {
+            background: linear-gradient(to bottom, #666666 0%, #333333 100%);
+            padding: 10px 15px;
+            border-bottom: 3px solid #FF6600;
+        }
+
+        .header-top {
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: #CCCCCC;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .header-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 2px #000000;
+        }
+
+        .header-subtitle {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #FF6600;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        .content-row td {
+            vertical-align: top;
+        }
+
+        .sidebar {
+            width: 160px;
+            background: linear-gradient(to bottom, #CC3300 0%, #990000 100%);
+            padding: 0;
+            border-right: 1px solid #660000;
+        }
+
+        .sidebar-header {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #FFFFFF;
+            padding: 12px 10px 8px 10px;
+            border-bottom: 1px solid #FF6633;
+            text-shadow: 1px 1px 1px #660000;
+        }
+
+        .nav-link {
+            display: block;
+            font-family: Georgia, serif;
+            font-size: 12px;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-bottom: 1px solid #AA2200;
+        }
+
+        .nav-link:hover {
+            background-color: #BB4422;
+            color: #FFFF00;
+        }
+
+        .sidebar-box {
+            background-color: #800000;
+            margin: 0;
+            padding: 10px;
+            border-top: 1px solid #660000;
+        }
+
+        .sidebar-box-title {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+            color: #FFCC00;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-box-text {
+            font-family: Verdana, sans-serif;
+            font-size: 10px;
+            color: #FFFFFF;
+            line-height: 1.4;
+        }
+
+        .info-box {
+            background-color: #EEEEEE;
+            border: 1px inset #CCCCCC;
+            padding: 8px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .info-box-label {
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            color: #666666;
+            text-transform: uppercase;
+        }
+
+        .info-box-value {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #CC3300;
+            margin: 4px 0;
+        }
+
+        .info-box-small {
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            font-weight: bold;
+            color: #333333;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .main-content {
+            padding: 15px 20px;
+            background-color: #FFFFFF;
+        }
+
+        .banner {
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        .banner-box {
+            display: inline-block;
+            background-color: #FFFFFF;
+            border: 2px solid #666666;
+            border-radius: 5px;
+            padding: 8px 30px;
+            box-shadow: 2px 2px 4px #999999;
+        }
+
+        .banner-text {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #CC3300;
+        }
+
+        .content-text {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 11px;
+            color: #333333;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-text p {
+            margin-bottom: 10px;
+        }
+
+        .greeting {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .signature-area {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dotted #CCCCCC;
+        }
+
+        .quote-text {
+            font-style: italic;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+
+        .signature-name {
+            font-family: Georgia, serif;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .footer {
+            background-color: #333333;
+            padding: 8px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            color: #999999;
+            border-top: 2px solid #FF6600;
+        }
+
+        .footer a {
+            color: #CCCCCC;
+        }
+
+        /* HEADER IMAGES */
+        .header-img-welcome {
+            display: block;
+            max-width: 200px;
+            margin: 5px 0;
+        }
+
+        .header-img-title {
+            display: block;
+            max-width: 500px;
+            margin: 5px 0;
+        }
+
+        .hit-counter {
+            margin-top: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            color: #CCCCCC;
+        }
+
+        .blink {
+            color: #FF6600;
+        }
+
+        .marquee-text {
+            font-size: 10px;
+            color: #CC3300;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<table class="main-table" cellpadding="0" cellspacing="0">
+
+    <tr>
+        <td colspan="2" class="header-cell">
+            <img src="welcome-to.png" alt="Welcome to..." class="header-img-welcome">
+            <img src="vogel-memorial-theater.png" alt="Vogel Memorial Theater" class="header-img-title">
+            <div class="header-subtitle">"Luxury" Movie Theater &bull; 182 Waverly Ave. Rosett, NY &bull; (315)555-0831</div>
+        </td>
+    </tr>
+
+    <!-- Marquee Content -->
+    <tr>
+        <td colspan="2" style="background-color: #FFFF99; padding: 4px; border-bottom: 1px solid #CCCC66;">
+            <marquee behavior="scroll" direction="left" scrollamount="3">
+                <span class="marquee-text">&#9733; "GOBLIN SMASHERS: THE MOVIE" NOW PLAYING!! &#9733; REAL "BUTTER" POPCORN! &#9733; WE HAVE AIR CONDITIONING AGAIN! &#9733;</span>
+            </marquee>
+        </td>
+    </tr>
+
+    <!-- MAIN DIV CONTENT -->
+    <tr class="content-row">
+        <!-- Sidebar Content-->
+        <td class="sidebar">
+            <div class="sidebar-header">Navigation</div>
+            <a href="index.html" class="nav-link">&raquo; Home</a>
+            <a href="#" class="nav-link">&raquo; Showtimes</a>
+            <a href="buy_tickets.html" class="nav-link">&raquo; Buy Tickets</a>
+            <a href="contact_us.html" class="nav-link">&raquo; Contact Us</a>
+
+            <div class="sidebar-box">
+                <div class="sidebar-box-title">Find Us</div>
+                <div class="sidebar-box-text">
+                    Vogel Memorial Theater<br>
+                    182 Waverly Ave<br>
+                    Rosett, NY 13244
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <div class="sidebar-box-title">Box Office Hours</div>
+                <div class="sidebar-box-text">
+                    Mon-Sat: 10:00 - 7:00<br>
+                    Sunday: 4:00 - 6:30<br>
+                    Call: (315)555-0831
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-label">TICKET PRICING</div>
+                <div class="info-box-value">$10.00!</div>
+                <div class="info-box-small">Kids and Seinors<br>still $10</div>
+            </div>
+        </td>
+
+        <!-- Main Content -->
+        <td class="main-content">
+            <div class="banner">
+                <div class="banner-box">
+                    <span class="banner-text">Showtimes</span>
+                </div>
+            </div>
+
+            <div class="Main content-text">
+				<p>Current showtimes for...</p>
+				<h3 id="current-date"></h3>
+				<!-- Arctica City -->
+				<div style="display: flex; align-items: center; gap: 10px;">
+    				<img src="arctica.png" width="100" alt="Arctica City Poster">
+    				<div>
+						<h3 style="margin-bottom: 5px;">Arctica City</h3>
+						<span>In the wake of the devastating 'Redgate' attack, Guillerma (Natascha McElhone) finds herself in the middle of a brutal war between the military and the resistance group: 'Redgate Defenders.'</span>
+						<p style="margin: 5px 0 0 0; font-weight: bold;">12:20 PM &bull; 4:30 PM &bull; Runtime: 2 hrs. 0 mins.</p>
+					</div>
+				</div>
+				<br>
+				<!-- A Man In Cube -->
+				<div style="display: flex; align-items: center; gap: 10px;">
+    				<img src="a_man.png" width="100" alt="A Man in A Cube Poster">
+    				<div>
+						<h3 style="margin-bottom: 5px;">A Man in a Cube Looking up at a Light</h3>
+						<span>A college student finds himself trapped in an unfamilliar place. Darkness sourrounds him, except for a singular flourecent lightbulb above him. He'll do whatever it takes to escape, or die trying.</span>
+						<p style="margin: 5px 0 0 0; font-weight: bold;">10:15 AM &bull; 2:25 PM &bull; Runtime: 1 hrs. 50 mins.</p>
+					</div>
+				</div>
+				<br>
+				<!-- Goblin Smashers -->
+				<div style="display: flex; align-items: center; gap: 10px;">
+    				<img src="goblin_smash.png" width="100" alt="Goblin Smashers Poster">
+    				<div>
+						<h3 style="margin-bottom: 5px;">Goblin Smashers: The Movie</h3>
+						<span>Hear Ye! Hear Ye! The long awaited film adaptation of the critically acclaimed video game "Goblin Smashers" is finally here! Experience the kingdom of 'Goblina' like never before!</span>
+						<p style="margin: 5px 0 0 0; font-weight: bold;"> 6:45 PM &bull; 8:05PM &bull; Runtime: 2 hrs. 24 mins.</p>
+					</div>
+				</div>
+    </div>
+
+	<script>
+    // Get the current date object
+    const today = new Date();
+
+    // Format the date (e.g., "Thursday, January 8, 2026")
+    const formattedDate = today.toDateString(); 
+    
+    // Inject the date into the HTML element with id="current-date"
+    document.getElementById("current-date").innerHTML = formattedDate;
+
+                
+	</script>
+                
+
+                <div class="signature-area">
+                    <p class="quote-text">"Help us keep Murphy Vogel's dream alive!"</p>
+                    <p class="signature-name">The Vogel Memorial Theater Family; Annie, David, Melody, Kevin, and Derek*</p>
+                    <p class="signature-title">Est. 2024 &bull; Vogel Memorial Theater LLC</p>
+					<p class="signature-name">*Derek is not an employee of Vogel Memorial Theater.</p>
+                </div>
+        </td>
+    </tr>
+
+    <!-- Footer Row -->
+    <tr>
+        <td colspan="2" class="footer">
+            &copy; 2024-2026 Vogel Memorial Theater | Orange Television Network | Syracuse University<br>
+            <a href="#">Home</a> | <a href="#">Episodes</a> | <a href="#">Cast</a> | <a href="#">Contact</a> | <a href="#">Email Us</a>
+            <div class="hit-counter">
+                Visitors:  00103 | 
+                Last Updated: January 8, 2026 | 
+                <span class="blink">Best viewed in 800x600</span>
+            </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
